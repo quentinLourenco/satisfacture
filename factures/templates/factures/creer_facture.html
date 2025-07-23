@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Créer une facture</title></head>
+<body>
+  <h1>Créer une facture</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Créer</button>
+  </form>
+</body>
+</html>

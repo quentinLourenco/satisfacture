@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Modifier une facture</title></head>
+<body>
+  <h1>Modifier la facture : {{ facture.titre }}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enregistrer</button>
+  </form>
+  <a href="{% url 'creer_facture' %}">Créer une nouvelle facture</a>
+</body>
+</html>

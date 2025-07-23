@@ -1,0 +1,10 @@
+<h1>Liste des factures</h1>
+<ul>
+  {% for facture in factures %}
+    <li>
+      {{ facture.titre }} - {{ facture.montant }} €
+      <a href="{% url 'modifier_facture' facture.id %}">Modifier</a> |
+      <a href="{% url 'supprimer_facture' facture.id %}">Supprimer</a>
+    </li>
+  {% endfor %}
+</ul>
