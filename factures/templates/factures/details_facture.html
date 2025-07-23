@@ -1,0 +1,13 @@
+<h1>Détails de la facture</h1>
+
+<p><strong>Titre :</strong> {{ facture.titre }}</p>
+<p><strong>Montant :</strong> {{ facture.montant }} €</p>
+<p><strong>Date :</strong> {{ facture.date }}</p>
+<p><strong>Catégorie :</strong> {{ facture.categorie.nom }}</p>
+<p><strong>Description :</strong> {{ facture.description|linebreaks }}</p>
+<p><strong>Statut :</strong> {% if facture.payee %}Payée{% else %}Non payée{% endif %}</p>
+
+
+<a href="{% url 'modifier_facture' facture.id %}">Modifier</a> |
+<a href="{% url 'supprimer_facture' facture.id %}">Supprimer</a> |
+<a href="{% url 'liste_factures' %}">Retour à la liste</a>

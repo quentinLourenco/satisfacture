@@ -7,7 +7,7 @@ urlpatterns = [
     path('modifier/<int:facture_id>/', views.modifier_facture, name='modifier_facture'),
     path('liste/', views.liste_factures, name='liste_factures'),
     path('supprimer/<int:facture_id>/', views.supprimer_facture, name='supprimer_facture'),
-
+    path('details/<int:facture_id>/', views.details_facture, name='details_facture'),
 
 ]
 

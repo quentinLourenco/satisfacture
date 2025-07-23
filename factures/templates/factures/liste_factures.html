@@ -1,10 +1,28 @@
 <h1>Liste des factures</h1>
+
+<form method="get">
+  <label for="client">Filtrer par client :</label>
+  <select name="client" id="client" onchange="this.form.submit()">
+    <option value="">-- Tous les clients --</option>
+    {% for client in clients %}
+      <option value="{{ client.id }}" {% if client_id == client.id %}selected{% endif %}>
+        {{ client.nom }}
+      </option>
+    {% endfor %}
+  </select>
+</form>
+
 <ul>
   {% for facture in factures %}
     <li>
-      {{ facture.titre }} - {{ facture.montant }} €
+      {{ facture.titre }} - {{ facture.montant }} € - {{ facture.client.nom }}
+      {% if facture.payee %}(Payée){% else %}(Non payée){% endif %}
+      <a href="{% url 'details_facture' facture.id %}">Détails</a> |
       <a href="{% url 'modifier_facture' facture.id %}">Modifier</a> |
       <a href="{% url 'supprimer_facture' facture.id %}">Supprimer</a>
     </li>
+  {% empty %}
+    <li>Aucune facture trouvée.</li>
   {% endfor %}
 </ul>
+
